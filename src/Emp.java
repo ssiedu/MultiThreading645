@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 
 class Person{}
-public class Emp extends Thread {
+
+public class Emp extends Person implements Runnable {
     private int eno,salary;
     public Emp(int a, int b){
         eno=a; salary=b;
@@ -27,11 +28,18 @@ public class Emp extends Thread {
         Emp e2=new Emp(112,20000);
         Emp e3=new Emp(113,30000);
         Emp e4=new Emp(114,40000);
-       
-        e1.start();
-        e2.start();
-        e3.start();
-        e4.start();
+        
+        Thread t1=new Thread(e1);
+        Thread t2=new Thread(e2);
+        Thread t3=new Thread(e3);
+        Thread t4=new Thread(e4);
+        
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+        
+        
        
     }
 }
